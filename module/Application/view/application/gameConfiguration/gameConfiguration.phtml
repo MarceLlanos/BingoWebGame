@@ -1,0 +1,40 @@
+<?php
+    $this->form->prepare();
+    $this->form->setAttribute('action', $this->url('application', ['action' => 'add']));
+    $this->form->setAttributes([
+        'method' => 'post',
+        'class' => 'form-horizontal',
+        'role' => 'form'
+    ]);
+?>
+
+<div class="middle-box">
+    <div class="row">
+        <div class="ibox-title">
+            <h5><?= $this->title?></h5>
+        </div>
+        <?= $this->form()->openTag($this->form)?>
+
+        <div class="form-group">
+            <?= $this->formLabel($this->form->get('game_type_label')) ?>
+            <?= $this->formSelect($this->form->get('game_type')) ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($this->form->get('quantity_cards'))?>
+            <?= $this->formInput($this->form->get('quantity_cards'))?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($this->form->get('way_to_play_label'))?>
+            <?= $this->formSelect($this->form->get('way_to_play'))?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formSubmit($this->form->get('create'))?>
+        </div>
+
+        <?= $this->formHidden($this->form->get('id'))?>
+        <?= $this->form()->closeTag()?>
+    </div>
+</div>
