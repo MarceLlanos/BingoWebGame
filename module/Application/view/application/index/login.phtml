@@ -1,1 +1,35 @@
 <?php
+    $this->login_form->prepare();
+    $this->login_form->setAttributes([
+        'class' => '',
+        'method' => 'post',
+        'role' => 'form'
+    ]);
+?>
+
+<div class="container">
+    <div class="page-wrapper">
+        <div class="ibox-content">
+            <div class="middle-box">
+                <div class="ibox-title text-center">
+                    <h2><?= $this->title?></h2>
+                </div>
+                <?= $this->form()->openTag($this->login_form)?>
+                <div class="form-group">
+                    <?= $this->formLabel($this->login_form->get('email'))?>
+                    <?= $this->formInput($this->login_form->get('email'))?>
+                </div>
+                <div class="form-group">
+                    <?= $this->formLabel($this->login_form->get('password'))?>
+                    <?= $this->formInput($this->login_form->get('password'))?>
+                </div>
+
+                <div class="form-group">
+                    <?= $this->formSubmit($this->login_form->get('enter'))?>
+                </div>
+
+                <?= $this->form()->closeTag()?>
+            </div>
+        </div>
+    </div>
+</div>

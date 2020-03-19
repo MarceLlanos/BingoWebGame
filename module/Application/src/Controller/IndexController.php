@@ -7,7 +7,8 @@
 
 namespace Application\Controller;
 
-use Application\Form\GameConfigurationForm;
+use Application\Form\LoginForm;
+use Application\Form\RegisterForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -18,10 +19,17 @@ class IndexController extends AbstractActionController
         return new ViewModel();
     }
 
-
-
-    public function  addAction()
+    public function loginAction()
     {
+        $login_form = new LoginForm('login');
 
+        return new ViewModel(['title' => 'Login User', 'login_form' => $login_form ]);
+    }
+
+    public function  registerAction()
+    {
+        $register_form = new RegisterForm('register');
+
+        return new ViewModel(['title' => 'User Register', 'register_form' => $register_form ]);
     }
 }

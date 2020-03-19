@@ -7,11 +7,16 @@ namespace Application\Form;
 use Zend\Form\Element;
 use Zend\Form\Form;
 
-class LoginForm extends Form
+class RegisterForm extends Form
 {
     public function __construct($name = null, $options = [])
     {
         parent::__construct($name, $options);
+
+        $name = new Element\Text('name');
+        $name->setLabel('User name')->setLabelAttributes(['class' => 'control-form']);
+        $name->setAttributes(['class' => 'form-control', 'placeholder' => 'Introduce your name. Ex.: John Doe']);
+        $this->add($name);
 
         $email = new Element\Email('email');
         $email->setLabel('Email')->setLabelAttributes(['class' => 'control-form']);
@@ -23,10 +28,9 @@ class LoginForm extends Form
         $password->setAttributes(['class' => 'form-control', 'placeholder' => 'Introduce a password.']);
         $this->add($password);
 
-        $button = new Element\Button('enter');
-        $button->setAttributes(['class' => "btn btn-primary btn-lg", 'style' => 'width: 100%','value' => 'Login', 'type' => 'submit']);
+        $button = new Element\Button('send');
+        $button->setAttributes(['class' => "btn btn-primary btn-lg", 'style' => 'width: 100%','value' => 'Register', 'type' => 'submit']);
         $this->add($button);
     }
-
 
 }

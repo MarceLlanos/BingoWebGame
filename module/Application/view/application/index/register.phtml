@@ -1,0 +1,39 @@
+<?php
+$this->register_form->prepare();
+$this->register_form->setAttributes([
+    'class' => '',
+    'method' => 'post',
+    'role' => 'form'
+]);
+?>
+
+<div class="container">
+    <div class="page-wrapper">
+        <div class="ibox-content">
+            <div class="middle-box">
+                <div class="ibox-title text-center">
+                    <h2><?= $this->title?></h2>
+                </div>
+                <?= $this->form()->openTag($this->register_form)?>
+                <div class="form-group">
+                    <?= $this->formLabel($this->register_form->get('name'))?>
+                    <?= $this->formInput($this->register_form->get('name'))?>
+                </div>
+                <div class="form-group">
+                    <?= $this->formLabel($this->register_form->get('email'))?>
+                    <?= $this->formInput($this->register_form->get('email'))?>
+                </div>
+                <div class="form-group">
+                    <?= $this->formLabel($this->register_form->get('password'))?>
+                    <?= $this->formInput($this->register_form->get('password'))?>
+                </div>
+
+                <div class="form-group">
+                    <?= $this->formSubmit($this->register_form->get('send'))?>
+                </div>
+
+                <?= $this->form()->closeTag()?>
+            </div>
+        </div>
+    </div>
+</div>
